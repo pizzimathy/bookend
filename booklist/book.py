@@ -1,4 +1,6 @@
+#!/usr/bin/env python3
 
+import os
 import json
 from termcolor import colored
 
@@ -33,13 +35,13 @@ class BookEncoder:
 
     def __init__(self):
         self.collection = None
+        self.path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "lists.json")
 
-    @staticmethod
-    def encode(book=None):
+    def encode(self, book=None):
 
         books = {}
 
-        with open("lists.json", "r") as f:
+        with open(self.path, "r") as f:
 
             try:
                 books = json.loads(f.read())
@@ -47,7 +49,7 @@ class BookEncoder:
             except ValueError:
                 print("There was an error reading the list file.")
 
-        with open("lists.json", "w") as f:
+        with open(self.path, "w") as f:
 
             try:
                 f.write(json.dumps(books))
@@ -56,17 +58,7 @@ class BookEncoder:
 
     def encodecollection(self):
 
-        books = {}
-
-        with open("lists.json", "r") as f:
-
-            try:
-                books = json.loads(f.read())
-                books = self.collection
-            except ValueError:
-                print("There was an error reading the list file.")
-
-        with open("lists.json", "w") as f:
+        with open(self.path, "w") as f:
 
             replace = {
                 "books": self.collection
@@ -77,7 +69,7 @@ class BookEncoder:
     def decode(self):
 
         # opens list file and reads each book out of it
-        with open("lists.json", "r") as f:
+        with open(self.path, "r") as f:
 
             try:
                 self.collection = json.loads(f.read())["books"]
