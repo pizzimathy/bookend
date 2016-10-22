@@ -18,3 +18,4 @@ A tool for keeping track of the books you want to read.
 - [ ] close-match string searching
 - [ ] faster string searching
 - [ ] create queryable server to store lists remotely
+- [x] case-insensitivie searching
