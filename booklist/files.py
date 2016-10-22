@@ -15,7 +15,7 @@ def makefile(path):
     file = open(path, "w")
     file.close()
 
-    print("Created new list {}".format(getlast(path)))
+    print("Created new list file at {}".format(getlast(path)))
 
 
 def write(content, path="lists.json"):
