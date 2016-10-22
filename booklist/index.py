@@ -64,11 +64,12 @@ def init(args):
         decoder.remove(args.checkout)
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument("-s", "--search", help="'-s <term>' to search for a term across all lists")
-parser.add_argument("-l", "--list", help="prints a list of booklists", action="store_true")
-parser.add_argument("-a", "--add", help="add a new book!", action="store_true")
-parser.add_argument("-c", "--checkout", help="enter the title of a book, and it'll be removed from the list")
-parsed = parser.parse_args()
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-s", "--search", help="'-s <term>' to search for a term across all lists")
+    parser.add_argument("-l", "--list", help="prints a list of booklists", action="store_true")
+    parser.add_argument("-a", "--add", help="add a new book!", action="store_true")
+    parser.add_argument("-c", "--checkout", help="enter the title of a book, and it'll be removed from the list")
+    parsed = parser.parse_args()
 
-init(parsed)
+    init(parsed)
