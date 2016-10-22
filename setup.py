@@ -5,14 +5,16 @@ setup(
     name="booklist",
     description="Keeps track of the books you want to read!",
 
-    version="0.0.1",
+    version="0.0.3",
     license="MIT",
 
     url="https://github.com/apizzimenti/booklist.git",
     author="Anthony Pizzimenti",
     author_email="pizzimentianthony@gmail.com",
 
-    packages="booklist",
+    packages=["booklist"],
+
+    install_requires="termcolor",
 
     entry_points={
         "console_scripts": ["booklist=booklist.index:main"]
