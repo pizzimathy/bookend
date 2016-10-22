@@ -1,6 +1,5 @@
 
 import json
-from json.decoder import JSONDecodeError
 from termcolor import colored
 
 
@@ -21,10 +20,10 @@ class Book:
         booklist = colored(book["booklist"], "green") if param is "booklist" else book["booklist"]
 
         formatted = """
-        Title: {0}
-        Author: {1}
-        Call Number: {2}
-        List: {3}
+        Title:\t\t{0}
+        Author:\t\t{1}
+        Call Number:\t{2}
+        List:\t\t{3}
         """.format(title, author, book["callnumber"], booklist)
 
         return formatted
@@ -45,7 +44,7 @@ class BookEncoder:
             try:
                 books = json.loads(f.read())
                 books["books"].append(book)
-            except JSONDecodeError:
+            except ValueError:
                 print("There was an error reading the list file.")
 
         with open("lists.json", "w") as f:
@@ -64,7 +63,7 @@ class BookEncoder:
             try:
                 books = json.loads(f.read())
                 books = self.collection
-            except JSONDecodeError:
+            except ValueError:
                 print("There was an error reading the list file.")
 
         with open("lists.json", "w") as f:
@@ -82,7 +81,7 @@ class BookEncoder:
 
             try:
                 self.collection = json.loads(f.read())["books"]
-            except JSONDecodeError:
+            except ValueError:
                 print("\nThe file's empty! You have no books.\n")
             finally:
                 if not self.collection:
