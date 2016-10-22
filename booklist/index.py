@@ -39,7 +39,7 @@ def init(args):
                 results.append(Book.formatbook(book, "title"))
             elif args.search in book["author"]:
                 results.append(Book.formatbook(book, "author"))
-            elif args.search in book["list"]:
+            elif args.search in book["booklist"]:
                 results.append(Book.formatbook(book, "booklist"))
 
         for book in results:
