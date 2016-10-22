@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 import os.path as p
 import booklist.files as f
 import argparse
@@ -7,15 +8,17 @@ import argparse
 from json import dumps
 from booklist.book import BookEncoder, Book
 
+path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "lists.json")
+
 
 def init(args):
 
     # no lists exist -> make a new list
-    if not p.isfile("lists.json"):
+    if not p.isfile(path):
 
         print("You don't have any booklists!")
 
-        f.makefile("lists.json")
+        f.makefile(path)
 
         books = {
             "books": []
