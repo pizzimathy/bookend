@@ -35,11 +35,13 @@ def init(args):
 
         for book in decoder.collection:
 
-            if args.search in book["title"]:
+            s = args.search.lower()
+
+            if s in book["title"].lower():
                 results.append(Book.formatbook(book, "title"))
-            elif args.search in book["author"]:
+            elif s in book["author"].lower():
                 results.append(Book.formatbook(book, "author"))
-            elif args.search in book["booklist"]:
+            elif s in book["booklist"].lower():
                 results.append(Book.formatbook(book, "booklist"))
 
         for book in results:
