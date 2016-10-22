@@ -1,4 +1,3 @@
 
-from book import Book, BookEncoder
-from index import init
-from files import *
+from booklist.book import Book, BookEncoder
+from booklist.index import init
