@@ -5,7 +5,7 @@ setup(
     name="booklist",
     description="Keeps track of the books you want to read!",
 
-    version="0.0.3",
+    version="0.0.4",
     license="MIT",
 
     url="https://github.com/apizzimenti/booklist.git",
