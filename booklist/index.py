@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
 import os.path as p
-import files as f
+import booklist.files as f
 import argparse
 
 from json import dumps
-from book import BookEncoder, Book
+from booklist.book import BookEncoder, Book
 
 
 def init(args):
