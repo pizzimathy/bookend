@@ -1,6 +1,6 @@
 .idea
 *.json
 *.DS_Store
-booklist.egg-info
-booklist/__pycache__/*
+*.egg-info
+bookend/__pycache__/*
 dist
